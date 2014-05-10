@@ -10,7 +10,7 @@ require("data.table")
 mySql <- "SELECT * from file WHERE Date = '1/2/2007' OR Date = '2/2/2007'"
 
 ## Creates data.frame by reading the file in conjuction with the SQL query
-myData <- read.csv.sql("household_power_consumption.txt",mySql, sep=":")
+myData <- read.csv.sql("household_power_consumption.txt",mySql, sep=";")
 
 ## Reads myData as a data.table then
 ## uses data table processes to add a new variable that combines
@@ -42,7 +42,7 @@ with(DT, {
   lines(datetime, Sub_metering_1, col="Black")
   lines(datetime, Sub_metering_2, col="Red")
   lines(datetime, Sub_metering_3, col="Blue")
-  legend("topright", lty=1, col=c("Black", "Red", "Blue"), 
+  legend("topright", lty=1, bty="n", col=c("Black", "Red", "Blue"), 
          legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"))})
 
 ## Plot of datetime, Global Reactive Power
